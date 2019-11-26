@@ -1,0 +1,58 @@
+
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'application'
+    id 'idea'
+    id 'war'
+    id "org.springframework.boot" version "2.0.5.RELEASE"
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.0.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.5.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.5.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.1.0'
+
+}
+
+
+mainClassName='org.broonix.DemoStarterApplication'
+
+/*jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.broonix.DemoStarterApplication'
+        )
+    }
+}*/
+
+/*bootJar {
+    mainClassName = 'org.broonix.DemoStarterApplication'
+}*/
+
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/reports/coverage")
+    }
+}
+test.finalizedBy jacocoTestReport
