@@ -34,9 +34,9 @@ public class ExampleController {
     public Employee getEmployee(@PathVariable("id") Long id) {
         Employee emp = new Employee();
         emp.setId(id);
-        emp.setFirstName("Vinod");
-        emp.setLastName("Kashyap");
-        emp.setDesignation("CEO");
+        emp.setFirstName("Jaswant");
+        emp.setLastName("Singh");
+        emp.setDesignation("SSE");
 
         return emp;
     }
