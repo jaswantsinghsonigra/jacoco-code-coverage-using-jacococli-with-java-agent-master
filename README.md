@@ -2,8 +2,8 @@
 
 * First download the latest version 0.8.5 of jacocoagent and jacococli jar from jacoco zip archieve https://www.eclemma.org/jacoco/
 * Run project war file in command line with jacocoagent jar in vm arguments with below command this will start project on localhost:8080
-       
-       `java -javaagent:<path-of-jar>/jacocoagent.jar=address=*,port=36320,destfile=jacoco-it.exec,output=tcpserver -jar <path-to-application>/build/<war-name>.war`
+
+       '-javaagent:<path-of-jar>/jacocoagent.jar=address=*,excludes=*,port=36320,destfile=jacoco-it.exec,output=tcpserver'
 * Now hit the rest endpoints using postman/curl command to get code coverage
        
        'curl -X GET http://localhost:8080/test?parameter=9'
